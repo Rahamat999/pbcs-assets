@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Colorful Calculator App</title>
+
+<!-- ===== SOCIAL BAR AD (SITE WIDE) ===== -->
+<script src="https://pl28350883.effectivegatecpm.com/95/87/ff/9587ffafc7f2efd54957e19946dcdd7f.js"></script>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family: Arial, sans-serif;
+}
+
+/* BODY */
+body{
+  min-height:100vh;
+  background:linear-gradient(135deg,#667eea,#764ba2);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
+
+/* AD AREAS */
+.ad-header,
+.ad-footer{
+  width:100%;
+  display:flex;
+  justify-content:center;
+  margin:10px 0;
+}
+
+/* CENTER AREA */
+.center-wrapper{
+  flex:1;
+  width:100%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+/* CALCULATOR */
+.calculator{
+  width:100%;
+  max-width:360px;
+  background:#1f1f1f;
+  padding:20px;
+  border-radius:20px;
+  box-shadow:0 20px 40px rgba(0,0,0,.4);
+}
+
+/* DISPLAY */
+.display{
+  background:#000;
+  color:#00ff66;
+  font-size:2.3rem;
+  padding:15px;
+  border-radius:12px;
+  text-align:right;
+  overflow-x:auto;
+}
+
+/* BUTTONS */
+.buttons{
+  margin-top:20px;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:12px;
+}
+
+button{
+  padding:18px;
+  font-size:1.2rem;
+  border:none;
+  border-radius:12px;
+  cursor:pointer;
+  transition:.2s;
+}
+
+.num{background:#2c2c2c;color:#fff;}
+.op{background:#ff9800;color:#fff;}
+.clear{background:#f44336;color:#fff;}
+.del{background:#9c27b0;color:#fff;}
+.equal{
+  background:#4caf50;
+  color:#fff;
+  grid-column:span 2;
+}
+
+button:hover{
+  opacity:.85;
+  transform:scale(1.05);
+}
+
+/* MOBILE */
+@media(max-width:480px){
+  .display{font-size:2rem;}
+  button{padding:15px;font-size:1.1rem;}
+}
+</style>
+</head>
+
+<body>
+
+<!-- ===== HEADER BANNER AD ===== -->
+<div class="ad-header">
+<script>
+  atOptions = {
+    'key' : 'f1a9884c5677685e98c3b6ca35351d83',
+    'format' : 'iframe',
+    'height' : 50,
+    'width' : 320,
+    'params' : {}
+  };
+</script>
+<script src="https://www.highperformanceformat.com/f1a9884c5677685e98c3b6ca35351d83/invoke.js"></script>
+</div>
+
+<!-- ===== CALCULATOR CENTER ===== -->
+<div class="center-wrapper">
+  <div class="calculator">
+    <div id="display" class="display">0</div>
+
+    <div class="buttons">
+      <button class="clear" onclick="clearDisplay()">AC</button>
+      <button class="del" onclick="deleteLast()">DEL</button>
+      <button class="op" onclick="append('%')">%</button>
+      <button class="op" onclick="append('/')">÷</button>
+
+      <button class="num" onclick="append('7')">7</button>
+      <button class="num" onclick="append('8')">8</button>
+      <button class="num" onclick="append('9')">9</button>
+      <button class="op" onclick="append('*')">×</button>
+
+      <button class="num" onclick="append('4')">4</button>
+      <button class="num" onclick="append('5')">5</button>
+      <button class="num" onclick="append('6')">6</button>
+      <button class="op" onclick="append('-')">−</button>
+
+      <button class="num" onclick="append('1')">1</button>
+      <button class="num" onclick="append('2')">2</button>
+      <button class="num" onclick="append('3')">3</button>
+      <button class="op" onclick="append('+')">+</button>
+
+      <button class="num" onclick="append('0')">0</button>
+      <button class="num" onclick="append('.')">.</button>
+      <button class="equal" onclick="calculate()">=</button>
+    </div>
+  </div>
+</div>
+
+<!-- ===== FOOTER BANNER AD ===== -->
+<div class="ad-footer">
+<script>
+  atOptions = {
+    'key' : 'f1a9884c5677685e98c3b6ca35351d83',
+    'format' : 'iframe',
+    'height' : 50,
+    'width' : 320,
+    'params' : {}
+  };
+</script>
+<script src="https://www.highperformanceformat.com/f1a9884c5677685e98c3b6ca35351d83/invoke.js"></script>
+</div>
+
+<!-- ===== JAVASCRIPT ===== -->
+<script>
+let display = document.getElementById("display");
+
+function append(v){
+  display.innerText = display.innerText === "0" ? v : display.innerText + v;
+}
+
+function clearDisplay(){
+  display.innerText = "0";
+}
+
+function deleteLast(){
+  display.innerText = display.innerText.slice(0,-1) || "0";
+}
+
+function calculate(){
+  try{
+    display.innerText = eval(display.innerText.replace('%','/100'));
+  }catch{
+    display.innerText = "Error";
+  }
+}
+
+/* Keyboard Support */
+document.addEventListener("keydown", e=>{
+  if("0123456789+-*/.%".includes(e.key)) append(e.key);
+  if(e.key === "Enter") calculate();
+  if(e.key === "Backspace") deleteLast();
+  if(e.key === "Escape") clearDisplay();
+});
+</script>
+
+</body>
+</html>
